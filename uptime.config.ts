@@ -19,6 +19,15 @@ const workerConfig: WorkerConfig = {
     { id: 'docker_mirror', name: 'Docker镜像代理', method: 'GET', target: 'https://docker.panglina.ggff.net/v2/', expectedCodes: [200, 401] },
     { id: 'gh_proxy', name: 'GitHub加速', method: 'GET', target: 'https://gh.panglina.ggff.net/' },
   ],
+  notification: {
+    webhook: {
+      url: 'http://fn.panglina.ggff.net:2052/push?t=dsh2026bridge',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      payloadType: 'json',
+      payload: { text: '$MSG' },
+    },
+  },
 }
 
 const maintenances: MaintenanceConfig[] = []
